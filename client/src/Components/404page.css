@@ -1,0 +1,15 @@
+.error-page {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 20%;
+  }
+  
+  .error-page h1 {
+    font-size: 4em;
+    color: #333;
+  }
+  
+  .error-page p {
+    font-size: 1.5em;
+    color: #666;
+  }

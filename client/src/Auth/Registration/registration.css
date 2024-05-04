@@ -1,0 +1,80 @@
+.registration-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color:#302f2f; 
+}
+
+.registration-form {
+  background-color: #222222;
+  color: #ffffff; 
+  padding: 20px;
+  border-radius: 10px;
+  width: 25vw;
+  margin: 0 auto; 
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); 
+}
+
+.registration-form__title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.registration-form__label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.registration-form__input {
+  padding: 10px;
+  border: none;
+  margin-left: -10px;
+  border-radius: 10px;
+  width: 100%;
+  background-color: #333333; 
+  color: #ffffff; 
+}
+
+.registration-form__checkbox {
+  margin-bottom: 10px;
+}
+
+.registration-form__button {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.registration-form__button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.already-registered {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.already-registered span {
+  font-size: 0.9em;
+  color: #555;
+}
+
+.already-registered a {
+  font-size: 0.9em;
+  color: #007bff;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.already-registered a:hover {
+  color: #ffffff;
+}

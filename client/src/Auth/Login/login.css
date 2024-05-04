@@ -1,0 +1,80 @@
+.login-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color:#302f2f; 
+}
+
+.login-form {
+  background-color: #222222; 
+  color: #ffffff; 
+  padding: 20px;
+  border-radius: 10px;
+  width: 25vw;
+  margin: 0 auto; 
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); 
+}
+
+.login-form__title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.login-form__label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.login-form__input {
+  padding: 10px;
+  border: none;
+  margin-left: -10px;
+  border-radius: 10px;
+  width: 100%;
+  background-color: #333333; 
+  color: #ffffff; 
+}
+
+.login-form__checkbox {
+  margin-bottom: 10px;
+}
+
+.login-form__button {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.login-form__button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.has-not-account {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.has-not-account span {
+  font-size: 0.9em;
+  color: #555;
+}
+
+.has-not-account a {
+  font-size: 0.9em;
+  color: #007bff;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.has-not-account a:hover {
+  color: #ffffff;
+}
