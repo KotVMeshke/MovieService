@@ -6,5 +6,6 @@ namespace MovieApi.Services.Interface
     {
         public Task<MovieResponseTo[]> GetFilms(int offset, int limic);
         public Task<MovieResponseTo> GetFilmById(int id);
+        public Task<CrewResponseTo[]> GetCrewForFilm(int id);
     }
 }

@@ -46,6 +46,10 @@ const Library = () => {
     const handelRegistrClick = () => {
         navigate("/registration");
     }
+
+    const handleItemClick = (id : number) =>{
+        navigate(`/film/${id}`);
+    }
     useEffect(() => {
         const getFilms = async () => {
             try {
@@ -106,7 +110,7 @@ const Library = () => {
             </div>
             <ul className="films-list">
                 {filteredObjects.map((object) => (
-                    <li className="film-card" key={object.id}>
+                    <li className="film-card" key={object.id} onClick={() => handleItemClick(object.id)}>
                         <img className="film-poster" src={`http://localhost:5025/api/v1.0/images?path=${object.posterPath}`} />
                         <div className="film-details">
                             <div className="film-upper">

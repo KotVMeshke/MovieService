@@ -41,7 +41,7 @@ namespace MovieApi.Controllers
             {
                 logger.LogInformation($"Film {filmId} was getted succesfuly");
 
-                var response = new MSRespone(StatusCodes.Status302Found, $"Film {filmId} was geted", result);
+                var response = new MSRespone(StatusCodes.Status302Found, $"Film {filmId} was getted", result);
                 Response.StatusCode = StatusCodes.Status302Found;
                 return TypedResults.Json(response);
             }

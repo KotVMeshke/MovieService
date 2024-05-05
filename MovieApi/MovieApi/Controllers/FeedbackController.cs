@@ -11,7 +11,7 @@ namespace MovieApi.Controllers
     {
         [HttpPost]
         [Route("add")]
-        public async Task<IResult> AddFeedback(int userId, int filmId,int mark, [FromBody] string text)
+        public async Task<IResult> AddFeedback(int userId, int filmId,int mark, string text)
         {
             var result = await feedbackService.AddFeedback(userId,filmId,mark,text);
             if (result)

@@ -18,6 +18,13 @@ body{
     background-color: #333333;
 
   }
+
+  .films-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
   
   .container {
     display: flex;

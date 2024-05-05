@@ -75,6 +75,10 @@ const MyPage = () => {
         getFilms();
     }, []);
 
+    const handleItemClick = (id : number) =>{
+        navigate(`/film/${id}`);
+    }
+
     const filteredObjects = objects.filter((object) =>
         object.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
@@ -105,7 +109,7 @@ const MyPage = () => {
             </div>
             <ul className="films-list">
                 {filteredObjects.map((object) => (
-                    <li className="film-card" key={object.id}>
+                    <li className="film-card" key={object.id} onClick={() => handleItemClick(object.id)}>
                         <img className="film-poster" src={`http://localhost:5025/api/v1.0/images?path=${object.posterPath}`} />
                         <div className="film-details">
                             <div className="film-upper">
@@ -115,7 +119,7 @@ const MyPage = () => {
                                 <p className="film-description">Описание: {object.description}</p>
                                 <p className="film-restriction">Возрастное ограничение: {object.age}</p>
                                 {localStorage.getItem('authorized') ? (
-                                    <button className="add-to-favorites" onClick={() => addToLibrary(object.id)}
+                                    <button className="add-to-favorites" onClick={(e) => {addToLibrary(object.id); e.stopPropagation()}}
                                     > <span className="heart-icon">&#9825;</span>
                                     </button>) : (
                                     null
