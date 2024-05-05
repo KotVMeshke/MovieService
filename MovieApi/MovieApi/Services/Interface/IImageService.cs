@@ -2,5 +2,6 @@
 {
     public interface IImageService
     {
+        public StreamContent GetImage(string path); 
     }
 }

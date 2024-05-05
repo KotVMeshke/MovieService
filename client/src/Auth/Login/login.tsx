@@ -22,11 +22,12 @@ const LoginForm = () => {
       });
       console.log(response);
       if (response.status == 302) {
-        const data = await response.json();
+        const data = (await response.json()).data as UserData;
         console.log('Login successful:', data);
-        localStorage.setItem('authorized', 'true');
-        localStorage.setItem('user_id', "");
-        navigate("/hub");
+        localStorage.setItem("authorized", "true");
+        localStorage.setItem('user_id', data.userID.toString());
+        console.log(localStorage.getItem('authorized'));
+        navigate("/");
       } else {
         console.error('Login failed:', response.statusText);
       }
@@ -79,7 +80,7 @@ const LoginForm = () => {
 };
 
 interface UserData {
-  id: number;
+  userID: number;
   name: string;
 }
 

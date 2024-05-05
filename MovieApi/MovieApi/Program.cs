@@ -33,6 +33,8 @@ namespace MovieApi
             builder.Services.AddScoped<IMovieService, MovieService>();
             builder.Services.AddScoped<ILibraryService, LibraryService>();
             builder.Services.AddScoped<IFeedbackService, FeedbackService>();
+            builder.Services.AddScoped<IImageService, ImageService>();
+            builder.Services.AddScoped<IVideoService, VideoService>();
             var app = builder.Build();
 
             app.UseCors("AllowReactOrigin");

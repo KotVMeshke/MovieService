@@ -23,9 +23,34 @@ namespace MovieApi.Controllers
             else
             {
 
-                logger.LogInformation("Error during films getting");
+                logger.LogError("Error during films getting");
 
                 var responce = new MSRespone(StatusCodes.Status400BadRequest, "Error during films getting", result);
+                Response.StatusCode = StatusCodes.Status400BadRequest;
+
+                return TypedResults.Json(responce);
+            }
+        }
+
+        [HttpGet]
+        [Route("{filmId:int}")]
+        public async Task<IResult> GetMovie([FromRoute] int filmId)
+        {
+            var result = await movieService.GetFilmById(filmId);
+            if (result != null)
+            {
+                logger.LogInformation($"Film {filmId} was getted succesfuly");
+
+                var response = new MSRespone(StatusCodes.Status302Found, $"Film {filmId} was geted", result);
+                Response.StatusCode = StatusCodes.Status302Found;
+                return TypedResults.Json(response);
+            }
+            else
+            {
+
+                logger.LogError($"Error during film {filmId} getting");
+
+                var responce = new MSRespone(StatusCodes.Status400BadRequest, $"Error during film {filmId} getting", result);
                 Response.StatusCode = StatusCodes.Status400BadRequest;
 
                 return TypedResults.Json(responce);

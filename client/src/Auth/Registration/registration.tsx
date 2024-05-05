@@ -25,7 +25,7 @@ const RegistrationForm = () => {
         const data = await response.json();
         console.log('Registration successful:', data);
         localStorage.setItem('authorized', 'true');
-        navigate("/hub");
+        navigate("/");
 
       } else {
         console.error('Registration failed:', response.statusText);

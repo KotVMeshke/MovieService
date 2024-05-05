@@ -24,7 +24,7 @@ namespace MovieApi.Controllers
             }
             else
             {
-                logger.LogInformation("Error during banning");
+                logger.LogError("Error during banning");
 
                 var responce = new MSRespone(StatusCodes.Status400BadRequest, "Error during banning", result);
                 return TypedResults.Json(responce);
@@ -38,6 +38,7 @@ namespace MovieApi.Controllers
             var result = await adminService.UnBanUser(userId, adminId);
             if (result)
             {
+
                 var response = new MSRespone(StatusCodes.Status302Found, $"User {userId} was unbaned succesfuly", result);
                 return TypedResults.Json(response);
             }

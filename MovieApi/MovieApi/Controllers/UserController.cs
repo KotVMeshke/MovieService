@@ -3,6 +3,7 @@ using MovieApi.DBContext;
 using MovieApi.DTO;
 using MovieApi.Models;
 using MovieApi.Services.Interface;
+using System.IO;
 
 namespace MovieApi.Controllers
 {
@@ -18,14 +19,16 @@ namespace MovieApi.Controllers
             if (result.UserID != -1)
             {
                 logger.LogInformation($"User {result.UserID} was registrated succesfuly");
-
+                Response.StatusCode = StatusCodes.Status201Created;
                 var response = new MSRespone(StatusCodes.Status201Created, "User was created", result);
                 return TypedResults.Json(response);
             }
             else
             {
 
-                logger.LogInformation("Error during user creation");
+                logger.LogError($"Error during user creation");
+
+                Response.StatusCode = StatusCodes.Status400BadRequest;
 
                 var responce = new MSRespone(StatusCodes.Status400BadRequest, "Error during user creation", result);
                 return TypedResults.Json(responce);
@@ -40,13 +43,16 @@ namespace MovieApi.Controllers
             if (result.UserID != -1)
             {
                 logger.LogInformation("User was entered succesfuly");
+                Response.StatusCode = StatusCodes.Status302Found;
+
                 var response = new MSRespone(StatusCodes.Status302Found, "User was entered succesfuly", result);
                 return TypedResults.Json(response);
             }
             else
             {
-                logger.LogInformation("Error during user authorization");
+                logger.LogError($"Error during user authorization");
 
+                Response.StatusCode = StatusCodes.Status400BadRequest;
                 var response = new MSRespone(StatusCodes.Status400BadRequest, "Error during user authorization", result);
                 return TypedResults.Json(response);
             }
