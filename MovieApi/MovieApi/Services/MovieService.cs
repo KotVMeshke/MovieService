@@ -106,5 +106,34 @@ namespace MovieApi.Services
             }
 
         }
+
+        public async Task<GenresResponseTo[]> GetGenresForFilm(int id)
+        {
+            try
+            {
+                var gnr_names = dbContext.Films
+                            .Where(f => f.FlmId == id)
+                            .Include(f => f.FgGenres)
+                            .SelectMany(f => f.FgGenres.Select(g => g.GnrName))
+                            .ToList();
+
+                var result = new List<GenresResponseTo>();
+                foreach (var gen in gnr_names)
+                {
+                    result.Add(new GenresResponseTo()
+                    {
+                        Name = gen
+                    });
+                }
+               
+
+                return [..result];
+
+            }
+            catch (Exception ex)
+            {
+                return null!;
+            }
+        }
     }
 }

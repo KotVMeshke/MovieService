@@ -6,6 +6,10 @@ import { useNavigate } from 'react-router-dom';
 
 import moment from 'moment';
 
+interface Genre {
+    name: string
+}
+
 interface FilmData {
     id: number,
     name: string,
@@ -47,6 +51,7 @@ const Film = () => {
     const [userComment, setUserComment] = useState('');
     const [userMark, setUserMark] = useState('');
     const [crew, setCrew] = useState<crewMember[]>([]);
+    const [genres, setGenres] = useState<Genre[]>([]);
 
     const [film, setFilm] = useState<FilmData>();
     const [isTrailer, setIsTrailer] = useState(false);
@@ -146,6 +151,31 @@ const Film = () => {
                 console.error('Error during getting crew:', error);
             }
         }
+
+        const getGenreData = async () => {
+            try {
+                const response = await fetch(`http://localhost:5025/api/v1.0/movie/genre/${id}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                });
+                console.log(response.status);
+                if (response.status == 302) {
+                    const data = (await response.json()).data as Genre[];
+                    console.log('Genres getting successful:', data)
+                    setGenres(data);
+                    console.log('sda');
+                    console.log(genres);
+
+                } else {
+                    console.error('Genres getting failed:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error during getting genres:', error);
+            }
+        }
+        getGenreData();
         getFilmData();
         getCrewData();
         getComments();
@@ -162,8 +192,8 @@ const Film = () => {
                     <div className="film-info-poster-container">
                         <img className="film-info-poster" src={`http://localhost:5025/api/v1.0/images?path=${film?.posterPath}`} />
                         <div className='film-crew-info'>
-                            
-                        <span className='director'>
+
+                            <span className='director'>
                                 Режиссёр:
                                 {crew
                                     .filter(member => member.role === 'Режиссер')
@@ -194,7 +224,7 @@ const Film = () => {
                                         </React.Fragment>
                                     ))
                                 }
-                         
+
 
                             </span>
                             <br />
@@ -215,8 +245,16 @@ const Film = () => {
                                     ))
                                 }
                             </span>
-                            
-                           
+                            <br/>
+                            <br/>
+                            <div className='film-info-genres'>
+                                Жанры: {genres.map((genre, index) => (
+                                    <span key={index}>
+                                        {genre.name}
+                                        {index !== genres.length - 1 && ', '}
+                                    </span>
+                                ))}
+                            </div>
 
                         </div>
                     </div>
