@@ -57,5 +57,30 @@ namespace MovieApi.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("crew/{filmId:int}")]
+        public async Task<IResult> GetFilmCrew([FromRoute] int filmId)
+        {
+            var result = await movieService.GetCrewForFilm(filmId);
+            if (result != null)
+            {
+                logger.LogInformation($"Crew for film {filmId} was getted succesfuly");
+
+                var response = new MSRespone(StatusCodes.Status302Found, $"Crew for film {filmId} was getted", result);
+                Response.StatusCode = StatusCodes.Status302Found;
+                return TypedResults.Json(response);
+            }
+            else
+            {
+
+                logger.LogError($"Error during crew for film {filmId} getting");
+
+                var responce = new MSRespone(StatusCodes.Status400BadRequest, $"Error during crew for film {filmId} getting", result);
+                Response.StatusCode = StatusCodes.Status400BadRequest;
+
+                return TypedResults.Json(responce);
+            }
+        }
+
     }
 }

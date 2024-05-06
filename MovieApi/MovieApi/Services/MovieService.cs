@@ -13,13 +13,36 @@ namespace MovieApi.Services
         {
             try
             {
+                var result = new List<CrewResponseTo>();
+                var query = from filmCrew in dbContext.FilmCrews
+                            join crewRole in dbContext.CrewRoles on filmCrew.FcrRole equals crewRole.CrId
+                            join person in dbContext.People on filmCrew.FcrPerson equals person.PerId
+                            where filmCrew.FcrFilm == id
+                            select new
+                            {
+                                CrewId = filmCrew.FcrId,
+                                CrewRoleName = crewRole.CrName,
+                                PersonName = person.PerName,
+                                PersonSurname = person.PerSurname
+                            };
 
+                var queryResult = await query.ToListAsync();
+                foreach (var q in queryResult)
+                {
+                    result.Add(new CrewResponseTo()
+                    {
+                        Id = q.CrewId,
+                        Name = q.PersonName,
+                        Role = q.CrewRoleName,
+                        Surname = q.PersonSurname
+                    });
+                }
+                return result.ToArray();
             }
             catch
             {
-
+                return null!;
             }
-            throw new NotImplementedException();
         }
 
         public async Task<MovieResponseTo> GetFilmById(int id)

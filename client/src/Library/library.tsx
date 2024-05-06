@@ -120,7 +120,7 @@ const Library = () => {
                                 <p className="film-description">Описание: {object.description}</p>
                                 <p className="film-restriction">Возрастное ограничение: {object.age}</p>
                                 {localStorage.getItem('authorized') ? (
-                                    <button className="add-to-favorites" onClick={() => removeFromLibrary(object.id)}
+                                    <button className="add-to-favorites" onClick={(e) => {removeFromLibrary(object.id); e.stopPropagation()}}
                                     > <span className="heart-icon">&#9825;</span>
                                     </button>) : (
                                     null

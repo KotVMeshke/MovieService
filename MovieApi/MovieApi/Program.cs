@@ -35,20 +35,15 @@ namespace MovieApi
             builder.Services.AddScoped<IFeedbackService, FeedbackService>();
             builder.Services.AddScoped<IImageService, ImageService>();
             builder.Services.AddScoped<IVideoService, VideoService>();
+            builder.Services.AddScoped<ICrewService, CrewService>();
             var app = builder.Build();
 
             app.UseCors("AllowReactOrigin");
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
-            //app.UseHttpsRedirection();
-
-            //app.UseAuthorization();
-
 
             app.MapControllers();
 

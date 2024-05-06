@@ -1,5 +1,5 @@
-/* /* /* body{
-    background-color: #333333;
+ body{
+    background-color: #1f1d1d;
 }
 
 .comment-card {
@@ -79,23 +79,25 @@
     background-color: #0077cc;
   }
   
-  .container {
+  .film-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    justify-content: center;
     padding: 2rem;
-    background-color: #333333;
+    background-color: #1f1d1d;
+
     border-radius: 10px;
      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
   }
   
-  .container > div:first-child {
+  .film-container > div:first-child {
     flex-basis: 30%;
     margin-right: 2rem;
   }
   
-  .container > div:last-child {
+  .film-container > div:last-child {
     flex-basis: 70%;
   }
   
@@ -110,60 +112,113 @@
     margin-bottom: 10px;
   }
   
+.comment-h{
+  color: white;
+}
+
   .video-player {
+    display: flex;
     width: 100%;
     height: 400px;
     border: none;
+    align-items: center;
     border-radius: 10px;
     overflow: hidden;
   }
   
   .video-player video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 40%;
+    /* object-fit: cover; */
   }
 
-  .film-info {
+  .just-div{
+    height: 100%;
+    width: 60%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    background-color: #333333;
+  }
+  .film-info-info {
     display: flex;
+    flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
   }
   
-  .film-poster {
-    width: 200px;
-    height: auto;
+  
+  .film-info-upper {
     margin-right: 20px;
-    border-radius: 10px;
   }
   
-  .film-details {
-    flex-grow: 1;
-  }
-  
-  .film-upper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .film-name {
+  .film-info-name {
     margin: 0;
     font-size: 24px;
+    color: #fff;
   }
   
-  .film-left-side {
+  .film-info-poster-container {
+    display: flex;
     margin-right: 20px;
+    width: 650px;
+    justify-content: space-around;
   }
   
-  .film-description {
+  .film-info-poster {
+    width: 220px;
+    height: auto;
+    align-self: flex-start;
+    border-radius: 10px;
+    /* border: 2px solid blue; */
+
+  }
+  
+  .film-info-lower {
+    flex-grow: 1;
+    width: 80%;
+    justify-content: center;
+    /* border: 2px solid blue; */
+
+  }
+  
+  .film-info-description {
     margin: 0;
+    width: 700px;
     font-size: 16px;
+    color: #fff;
   }
   
-  .film-restriction {
+  .film-info-restriction {
     margin: 0;
     font-size: 16px;
     color: #999999;
-  }    */
+  }
+
+  .trailer-film-selector{
+    background-color: #8d8b8b;
+    border-radius: 20px;
+  }
+
+  .film-crew-info {
+    max-width: 300px;
+
+    color: white;
+    word-wrap: normal;
+  }
+  
+  .director {
+    font-weight: bold;
+   
+  }
+  
+  .screenwriters {
+    
+    text-decoration: none;
+  }
+  
+  .actors {
+    font-style: italic;
+  }
+  
+  a{
+    color: white;
+    text-decoration: none;
+  }

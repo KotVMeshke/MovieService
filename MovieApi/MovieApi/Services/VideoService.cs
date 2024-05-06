@@ -30,5 +30,16 @@ namespace MovieApi.Services
             }
 
         }
+        private async void AddInHistory(int filmId, int userId)
+        {
+            //try
+            //{
+            //    var 
+            //}
+            //catch
+            //{
+
+            //}
+        }
     }
 }

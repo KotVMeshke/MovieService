@@ -10,6 +10,7 @@ import MainPage from './Main/main';
 import NotFound from './Components/404page';
 import Library from './Library/library';
 import Film from './Film/film';
+import CrewMember from './CrewMember/crewMemeber';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/" element={<MainPage />}/>
         <Route path="/library" element={<Library />}/>
         <Route path="/film/:id" element={<Film />}/>
+        <Route path="/crew/:crewId" element={<CrewMember />}/>
         <Route path='*' element={<NotFound />} />
       </Routes>
     </Router>

@@ -1,0 +1,51 @@
+.crew-member {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .crew-member-details {
+    width: 600px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .crew-member-details h2 {
+    margin: 0;
+  }
+  
+  .crew-member-photo {
+    margin-right: 20px;
+  }
+  
+  .crew-member-photo img {
+    width: 200px;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .crew-member-details p {
+    margin: 5px 0;
+  }
+  
+  .crew-member-details p:first-child {
+    margin-top: 0;
+  }
+  
+  .crew-member-details p:last-child {
+    margin-bottom: 0;
+    text-align: right;
+  }
+
+  .just-div-v2{
+    height: 100%;
+    width: 40%;
+    color: white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    background-color: #333333;
+  }
+  
+  .crew-member-info{
+    align-self: start;
+  }
